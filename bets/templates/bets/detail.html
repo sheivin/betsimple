@@ -1,0 +1,12 @@
+<h1>{{ event.event_text }}</h1>
+
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+<form action="{% url 'bets:bet' event.id %}" method="post">
+{% csrf_token %}
+{% for count in event.count_set.all %}
+	<input type="radio" name="count" id="count{{ forloop.counter }}" value="{{ count.id }}">
+	<label for="count{{ forloop.counter }}">{{ count.count_for }}</label><br>
+{% endfor %}
+<input type="submit" name="Bet">
+</form>

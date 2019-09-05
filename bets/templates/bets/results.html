@@ -1,0 +1,9 @@
+<h1>{{ event.event_text }}</h1>
+
+<ul>
+{% for count in event.count_set.all %}
+	<li>{{ count.for_count }} bet{{ count.against_count|pluralize }}</li>
+{% endfor %}
+</ul>
+
+<a href="{% url 'bets:detail' event.id %}">Bet again?</a>
