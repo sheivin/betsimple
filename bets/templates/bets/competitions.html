@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block content %}
+	<h2>Competitions</h2>
+	{% for competition in competitions_list %}
+		<p>{{ competition }}</p>
+	{% endfor %}
+	<!-- <p>{{ data }}</p> -->
+{% endblock %}
